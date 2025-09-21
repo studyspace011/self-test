@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline MCQ Test App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+</head>
+<body>
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen active">
+        <div class="container">
+            <h1>📝 Offline MCQ Test</h1>
+            <div class="upload-section">
+                <input type="file" id="csv-file" accept=".csv" />
+                <label for="csv-file" class="upload-btn">📁 CSV फ़ाइल अपलोड करें</label>
+            </div>
+            
+            <div id="status" class="status">
+                <span id="question-count">0</span> प्रश्न लोड हो चुके हैं
+            </div>
+
+            <div id="test-setup" class="test-setup hidden">
+                <h3>टेस्ट सेटिंग्स</h3>
+                
+                <div class="setting-item">
+                    <label>विषय का नाम (वैकल्पिक):</label>
+                    <input type="text" id="subject-name" placeholder="जैसे: गणित, विज्ञान">
+                </div>
+                
+                <div class="setting-item">
+                    <label>अध्याय संख्या (वैकल्पिक):</label>
+                    <input type="text" id="chapter-number" placeholder="जैसे: 1, 2, 3">
+                </div>
+                
+                <div class="setting-item">
+                    <label>प्रश्नों की संख्या:</label>
+                    <input type="number" id="num-questions" min="1" value="10">
+                </div>
+                
+                <div class="setting-item">
+                    <label>कुल समय सीमा (मिनट में):</label>
+                    <input type="number" id="total-time-limit" min="1" value="30" placeholder="मिनट">
+                </div>
+                
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="shuffle-questions" checked>
+                        प्रश्न शफ़ल करें
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="shuffle-options" checked>
+                        विकल्प शफ़ल करें
+                    </label>
+                </div>
+                
+                <button id="start-test" class="primary-btn">टेस्ट शुरू करें</button>
+            </div>
+            
+            <div class="navigation-links">
+                <button id="view-history" class="secondary-btn">📚 पिछले प्रयास</button>
+                <button id="view-analytics" class="secondary-btn">📊 विश्लेषण</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Screen -->
+    <div id="test-screen" class="screen">
+        <div class="container">
+            <div class="test-header">
+                <div class="timer">⏱️ <span id="time-left">00:00</span></div>
+                <div class="progress">
+                    <span id="current-question">1</span> / <span id="total-questions">0</span>
+                </div>
+            </div>
+            
+            <div id="question-container" class="question-container">
+                <h3 id="question-text"></h3>
+                <div id="options-container" class="options-container">
+                    <!-- Options will be added here dynamically -->
+                </div>
+            </div>
+
+            <div class="test-controls">
+                <button id="prev-btn" class="secondary-btn">पिछला</button>
+                <button id="next-btn" class="primary-btn">अगला</button>
+                <button id="submit-test" class="success-btn hidden">टेस्ट सबमिट करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="container">
+            <h2>📊 परिणाम</h2>
+            
+            <div class="result-summary">
+                <div class="score-card">
+                    <h3>आपका स्कोर</h3>
+                    <div class="score"><span id="score">0</span>/<span id="total-score">0</span></div>
+                    <div class="percentage"><span id="percentage">0</span>%</div>
+                </div>
+                
+                <div class="test-info">
+                    <div class="info-item">
+                        <strong>विषय:</strong> <span id="result-subject">-</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>अध्याय:</strong> <span id="result-chapter">-</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>समय लगा:</strong> <span id="time-taken">00:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detailed-results">
+                <h3>विस्तृत परिणाम</h3>
+                <div id="questions-review" class="questions-review">
+                    <!-- Questions review will be added here -->
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <button id="new-test" class="primary-btn">नया टेस्ट</button>
+                <button id="export-results" class="secondary-btn">📥 परिणाम डाउनलोड</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Screen -->
+    <div id="history-screen" class="screen">
+        <div class="container">
+            <h2>📚 पिछले प्रयास</h2>
+            <div id="history-list" class="history-list">
+                <!-- History items will be added here -->
+            </div>
+            <div class="history-actions">
+                <button id="back-to-home" class="secondary-btn">🏠 वापस जाएं</button>
+                <button id="clear-history" class="danger-btn">🗑️ इतिहास हटाएं</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

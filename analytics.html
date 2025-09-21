@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - MCQ Test App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+</head>
+<body>
+    <div id="analytics-screen" class="screen active">
+        <div class="container">
+            <h1>📊 विश्लेषण डैशबोर्ड</h1>
+            
+            <div class="analytics-summary">
+                <div class="summary-card">
+                    <h3>कुल टेस्ट</h3>
+                    <div class="summary-value" id="total-tests">0</div>
+                </div>
+                <div class="summary-card">
+                    <h3>औसत स्कोर</h3>
+                    <div class="summary-value" id="avg-score">0%</div>
+                </div>
+                <div class="summary-card">
+                    <h3>सबसे अच्छा स्कोर</h3>
+                    <div class="summary-value" id="best-score">0%</div>
+                </div>
+            </div>
+            
+            <div class="charts-container">
+                <div class="chart-section">
+                    <h3>विषयवार प्रदर्शन</h3>
+                    <canvas id="subject-chart"></canvas>
+                </div>
+                
+                <div class="chart-section">
+                    <h3>समय पर आधारित प्रगति</h3>
+                    <canvas id="progress-chart"></canvas>
+                </div>
+            </div>
+            
+            <div class="recent-tests">
+                <h3>हाल के टेस्ट</h3>
+                <div id="recent-tests-list" class="recent-tests-list">
+                    <!-- Recent tests will be added here -->
+                </div>
+            </div>
+            
+            <div class="analytics-actions">
+                <button id="back-to-main" class="secondary-btn">🏠 मुख्य पृष्ठ</button>
+                <button id="export-analytics" class="secondary-btn">📥 विश्लेषण डाउनलोड</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="analytics.js"></script>
+</body>
+</html>
