@@ -12,7 +12,7 @@
     <!-- Home Screen -->
     <div id="home-screen" class="screen active">
         <div class="container">
-            <h1>📝 Offline MCQ Test</h1>
+            <h1>📝 Firoz Self Objective Test</h1>
             <div class="upload-section">
                 <input type="file" id="csv-file" accept=".csv" />
                 <label for="csv-file" class="upload-btn">📁 CSV फ़ाइल अपलोड करें</label>
@@ -23,15 +23,15 @@
             </div>
 
             <div id="test-setup" class="test-setup hidden">
-                <h3>टेस्ट सेटिंग्स</h3>
+                <h3>Test Settings</h3>
                 
                 <div class="setting-item">
-                    <label>विषय का नाम (वैकल्पिक):</label>
+                    <label>Chapter Name (Opt):</label>
                     <input type="text" id="subject-name" placeholder="जैसे: गणित, विज्ञान">
                 </div>
                 
                 <div class="setting-item">
-                    <label>अध्याय संख्या (वैकल्पिक):</label>
+                    <label>Chapter No (Opt):</label>
                     <input type="text" id="chapter-number" placeholder="जैसे: 1, 2, 3">
                 </div>
                 
@@ -86,8 +86,8 @@
             </div>
 
             <div class="test-controls">
-                <button id="prev-btn" class="secondary-btn">पिछला</button>
-                <button id="next-btn" class="primary-btn">अगला</button>
+                <button id="prev-btn" class="secondary-btn">Previous</button>
+                <button id="next-btn" class="primary-btn">Next</button>
                 <button id="submit-test" class="success-btn hidden">टेस्ट सबमिट करें</button>
             </div>
         </div>
@@ -96,21 +96,21 @@
     <!-- Results Screen -->
     <div id="results-screen" class="screen">
         <div class="container">
-            <h2>📊 परिणाम</h2>
+            <h2>📊 Result</h2>
             
             <div class="result-summary">
                 <div class="score-card">
-                    <h3>आपका स्कोर</h3>
+                    <h3>Your Marks</h3>
                     <div class="score"><span id="score">0</span>/<span id="total-score">0</span></div>
                     <div class="percentage"><span id="percentage">0</span>%</div>
                 </div>
                 
                 <div class="test-info">
                     <div class="info-item">
-                        <strong>विषय:</strong> <span id="result-subject">-</span>
+                        <strong>Subject:</strong> <span id="result-subject">-</span>
                     </div>
                     <div class="info-item">
-                        <strong>अध्याय:</strong> <span id="result-chapter">-</span>
+                        <strong>Chapter:</strong> <span id="result-chapter">-</span>
                     </div>
                     <div class="info-item">
                         <strong>समय लगा:</strong> <span id="time-taken">00:00</span>
@@ -119,15 +119,15 @@
             </div>
 
             <div class="detailed-results">
-                <h3>विस्तृत परिणाम</h3>
+                <h3>Detailed Result</h3>
                 <div id="questions-review" class="questions-review">
                     <!-- Questions review will be added here -->
                 </div>
             </div>
 
             <div class="result-actions">
-                <button id="new-test" class="primary-btn">नया टेस्ट</button>
-                <button id="export-results" class="secondary-btn">📥 परिणाम डाउनलोड</button>
+                <button id="new-test" class="primary-btn">New Test</button>
+                <button id="export-results" class="secondary-btn">📥 Download Result</button>
             </div>
         </div>
     </div>
